@@ -11,11 +11,11 @@ const RegisterOfTickets = () => {
 
   return (
     <>
-      <header className="max-w-5xl py-24 mx-auto">
-        <h1 className="text-4xl lg:text-5xl text-blu-ar-800 font-bold text-center uppercase mb-2">
+      <header className="max-w-5xl py-20 md:py-24 mx-auto">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl text-blu-ar-800 font-bold text-center uppercase mb-2">
           Configuración de Tickets
         </h1>
-        <p className="text-xl max-w-2xl text-center mx-auto opacity-80">
+        <p className="text-lg max-w-2xl text-center mx-auto opacity-80">
         Bienvenido a la página de administración de tickets MikroTik. Aquí puedes registrar y gestionar los tickets relacionados con tu red MikroTik.
         </p>
       </header>
@@ -23,25 +23,25 @@ const RegisterOfTickets = () => {
         !tickets ?
           (
             <form onSubmit={register} className="grid gap-4 max-w-4xl mx-auto">
-              <h2 className="text-2xl font-semibold opacity-80 uppercase px-4 mb-2">Configuración</h2>
+              <h2 className="text-xl md:text-2xl font-semibold opacity-80 uppercase px-1 md:px-4 mb-2">Configuración</h2>
 
-              <div className="flex flex-col px-4">
+              <div className="flex flex-col px-1 md:px-4">
                 <label htmlFor="zeller" className="font-semibold indent-2">Vendedor</label>
                 <input className="bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4" name="zeller" type="text" placeholder="Adrianfer" />
               </div>
-              <div className="flex flex-col px-4">
+              <div className="flex flex-col px-1 md:px-4">
                 <label htmlFor="server" className="font-semibold indent-2">Servidor</label>
                 <input className="bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4" name="server" type="text" placeholder="Wifi Por Hora" />
               </div>
-              <div className="flex flex-col px-4">
+              <div className="flex flex-col px-1 md:px-4">
                 <label htmlFor="title" className="font-semibold indent-2">Titulo</label>
                 <input className="bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4" name="title" type="text" placeholder="Wifi Por Hora" />
               </div>
-              <div className="flex flex-col px-4">
+              <div className="flex flex-col px-1 md:px-4">
                 <label htmlFor="profile" className="font-semibold indent-2">Perfil</label>
                 <input className="bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4" name="profile" type="text" placeholder="1hr" />
               </div>
-              <div className="flex flex-col px-4">
+              <div className="flex flex-col px-1 md:px-4">
                 <label htmlFor="uptime" className="font-semibold indent-2">Tiempo</label>
                 <input className="bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4" name="uptime" type="text" placeholder="01:00:00" />
               </div>

@@ -18,9 +18,9 @@ const ListOfCount = () => {
   };
 
   return (
-    <div className='grid gap-3 max-w-md px-4'>
+    <div className='grid gap-3 max-w-md px-1 md:px-4'>
       <h4 className="font-semibold">Cantidad de tickets:</h4>
-        <div className='flex items-center justify-around'>
+        <div className='flex flex-wrap items-center justify-around'>
         {OPTIONS.map((option) => (
           <div key={option.value} className='flex gap-1'>
               <input
