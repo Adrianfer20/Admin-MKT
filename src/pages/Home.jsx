@@ -50,7 +50,7 @@ export default function Home() {
     <h1 className="text-4xl lg:text-5xl text-blu-ar-800 font-bold text-center uppercase mb-2">
       Cargando...
     </h1>
-    
+
   </header>
 
   if (error) return <p>{error}</p>
@@ -58,11 +58,11 @@ export default function Home() {
 
   return (
     <>
-      <header className="max-w-5xl py-24 mx-auto">
-        <h1 className="text-4xl lg:text-5xl text-blu-ar-800 font-bold text-center uppercase mb-2">
+      <header className="max-w-5xl py-20 md:py-24 mx-auto">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl text-blu-ar-800 font-bold text-center uppercase mb-2">
           Registro de Tickets
         </h1>
-        <p className="text-xl max-w-2xl text-center mx-auto opacity-80">
+        <p className="text-lg max-w-2xl text-center mx-auto opacity-80">
           Bienvenido a la página de administración de tickets MikroTik. Aquí
           puedes registrar y gestionar los tickets relacionados con tu red
           MikroTik.
@@ -70,10 +70,10 @@ export default function Home() {
       </header>
 
       <section>
-        <div className="flex items-center justify-between max-w-6xl mb-6 mx-auto">
-          <h2 className="text-2xl text-center font-bold uppercase">Lista de Códigos</h2>
+        <div className="flex flex-wrap items-center justify-center md:justify-between max-w-6xl mb-6 mx-auto">
+          <h2 className="w-full md:w-auto text-xl md:text-2xl text-center font-bold uppercase">Lista de Códigos</h2>
 
-          <div className="flex justify-end items-center">
+          <div className="flex justify-center md:justify-end items-center">
             <label htmlFor="sort" className="mr-2">Ordenar por:</label>
             <select
               id="sort"
@@ -88,19 +88,19 @@ export default function Home() {
           </div>
         </div>
 
-        <ul className="max-w-6xl flex flex-col gap-2 mx-auto px-6">
+        <ul className="max-w-6xl flex flex-col gap-2 mx-auto px-2 md:px-6">
           {sortedTickets.map((ticket, index) => (
             <li
               key={ticket.id}
-              className={`flex items-center justify-between px-2 py-1 ${index%2===0?"bg-blu-ar-50":""} rounded cursor-pointer ${ticket.id === storedItemId && "bg-lemon-ar-400"} focus:bg-lemon-ar-400 focus:outline-none active:bg-lemon-ar-600`}
+              className={`flex flex-wrap items-center justify-center md:justify-between px-2 py-1 gap-2 ${index % 2 === 0 ? "bg-blu-ar-50" : ""} rounded cursor-pointer ${ticket.id === storedItemId && "bg-lemon-ar-400"} focus:bg-lemon-ar-400 focus:outline-none active:bg-lemon-ar-600`}
               tabIndex={0}
             >
               <div id={`div-${ticket.id}`}>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-center gap-2">
                   <span className="block"><strong>ID:</strong> {ticket.id.slice(0, 4)} </span>
                   <span className="block capitalize"><strong>Zeller:</strong> {ticket.zeller} </span>
                 </div>
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center justify-center md:justify-between gap-2">
                   <span className="block"><strong>Perfil:</strong> {ticket.profile} </span>
                   <span className="block"><strong>Tickets:</strong> {ticket.codes.length} </span>
                   <span className="block"><strong>Fecha:</strong> {ticket.date} </span>

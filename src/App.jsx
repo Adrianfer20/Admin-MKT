@@ -23,7 +23,7 @@ export default function App() {
 
         {/* Renderiza el componente de navegación y las rutas de la aplicación. */}
         <Nav />
-        <div className="w-full flex-grow px-16 mx-auto">
+        <div className="w-full flex-grow px-6 lg:px-16 mx-auto">
           <Routes>
             <Route path="/Admin-MKT/" element={<Home />} />
             <Route path="/Admin-MKT/crear-tickets" element={<RegisterOfTickets />} />
