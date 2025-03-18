@@ -26,6 +26,7 @@ export default function App() {
         <div className="w-full flex-grow px-16 mx-auto">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/inicio" element={<Home />} />
             <Route path="/crear-tickets" element={<RegisterOfTickets />} />
           </Routes>
 

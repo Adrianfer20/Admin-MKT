@@ -14,8 +14,8 @@ export function useSaveOfTickets() {
         localStorage.setItem('itemId', res.id)
         // Redirige a la página de inicio ("/") después de guardar satisfactoriamente
         setTimeout(() => {
-            window.location.href = '/';
-        }, 1000);
+            window.location.href = '/inicio';
+        }, 1500);
       }
       message = res.message
     } catch (e) {
