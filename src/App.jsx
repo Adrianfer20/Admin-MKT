@@ -25,9 +25,8 @@ export default function App() {
         <Nav />
         <div className="w-full flex-grow px-16 mx-auto">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/inicio" element={<Home />} />
-            <Route path="/crear-tickets" element={<RegisterOfTickets />} />
+            <Route path="/Admin-MKT/" element={<Home />} />
+            <Route path="/Admin-MKT/crear-tickets" element={<RegisterOfTickets />} />
           </Routes>
 
           {/* Agrega un componente Toast para mostrar notificaciones en la parte inferior del centro. */}

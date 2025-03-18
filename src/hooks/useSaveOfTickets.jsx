@@ -14,7 +14,7 @@ export function useSaveOfTickets() {
         localStorage.setItem('itemId', res.id)
         // Redirige a la página de inicio ("/") después de guardar satisfactoriamente
         setTimeout(() => {
-            window.location.href = '/inicio';
+            window.location.href = '/Admin-MKT/';
         }, 1500);
       }
       message = res.message
