@@ -11,21 +11,23 @@ const RegisterOfTickets = () => {
 
   return (
     <>
-      <header className=" pt-40 pb-28">
-        <h1 className="text-4xl font-bold uppercase mb-2">Registrar Tickets</h1>
-        <p className="text-xl max-w-2xl ">
-          Bienvenido a la página de administración de tickets MikroTik. Aquí puedes registrar y gestionar los tickets relacionados con tu red MikroTik.
+      <header className="max-w-5xl py-24 mx-auto">
+        <h1 className="text-4xl lg:text-5xl text-blu-ar-800 font-bold text-center uppercase mb-2">
+          Configuración de Tickets
+        </h1>
+        <p className="text-xl max-w-2xl text-center mx-auto opacity-80">
+        Bienvenido a la página de administración de tickets MikroTik. Aquí puedes registrar y gestionar los tickets relacionados con tu red MikroTik.
         </p>
       </header>
       {
         !tickets ?
           (
             <form onSubmit={register} className="grid gap-4 max-w-4xl mx-auto">
-              <h2 className="text-3xl text-center mb-3">Configuración</h2>
-              
+              <h2 className="text-2xl font-semibold opacity-80 uppercase px-4 mb-2">Configuración</h2>
+
               <div className="flex flex-col px-4">
                 <label htmlFor="zeller" className="font-semibold indent-2">Vendedor</label>
-                <input className="bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4" name="zeller" type="text" placeholder="adrianfer" />
+                <input className="bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4" name="zeller" type="text" placeholder="Adrianfer" />
               </div>
               <div className="flex flex-col px-4">
                 <label htmlFor="server" className="font-semibold indent-2">Servidor</label>
@@ -44,7 +46,7 @@ const RegisterOfTickets = () => {
                 <input className="bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4" name="uptime" type="text" placeholder="01:00:00" />
               </div>
               <ListOfCount />
-              
+
               <button type="submit" className="w-full max-w-md bg-blu-ar-700 text-lemon-ar-600 hover:bg-lemon-ar-600 hover:text-blu-ar-700 hover:shadow-sm hover:shadow-lemon-ar-600 rounded uppercase  font-bold py-2 px-16 mt-6 mx-auto transition ease-in-out delay-150">Registrar</button>
             </form>
           )
