@@ -5,25 +5,59 @@ import { usePdf } from "../hooks/usePdf";
 
 //Functions
 import { removeClassAnimation } from "../funtions/animations";
+import { useEffect, useMemo, useState } from "react";
 
 
-export default function Home(){
-  const tickets = useGetApi()
+export default function Home() {
+  const { tickets, isLoading, error } = useGetApi();
+
   const { printPDF } = usePdf();
   const { copyCMD } = useCDM();
 
-  const storedItemId = localStorage.getItem("itemId");
+
+  const [storedItemId, setStoredItemId] = useState(localStorage.getItem("itemId"));
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setStoredItemId(localStorage.getItem("itemId"));
+    };
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   removeClassAnimation(tickets)
+
+  const [sortCriteria, setSortCriteria] = useState("fecha");
+
+  const sortedTickets = useMemo(() => {
+    if (!tickets) return [];
+    return [...tickets].sort((a, b) => {
+      switch (sortCriteria) {
+        case "zeller":
+          return a.zeller.localeCompare(b.zeller);
+        case "fecha":
+          return new Date(a.date) - new Date(b.date);
+        case "profile":
+          return a.profile.localeCompare(b.profile);
+        default:
+          return 0;
+      }
+    });
+  }, [tickets, sortCriteria]);
+
+  if (isLoading) return <p>Cargando...</p>;
+
+  if (error) return <p>{error}</p>
 
 
   return (
     <>
-      <header className="pt-40 pb-28">
-        <h1 className="text-4xl font-bold uppercase mb-2">
+      <header className="max-w-5xl py-16 mx-auto">
+        <h1 className="text-4xl font-bold text-center uppercase mb-2">
           Registro de Tickets
         </h1>
-        <p className="text-xl max-w-2xl ">
+        <p className="text-xl max-w-2xl text-center mx-auto">
           Bienvenido a la página de administración de tickets MikroTik. Aquí
           puedes registrar y gestionar los tickets relacionados con tu red
           MikroTik.
@@ -31,39 +65,66 @@ export default function Home(){
       </header>
 
       <section>
-        <h2 className="text-xl font-semibold">Lista de Códigos</h2>
-        <ul className="flex flex-col gap-2">
-  {tickets?.map((ticket, index) => (
-    <li
-      key={ticket.id}
-      className={`flex items-center justify-between px-2 py-1 rounded ${
-        ticket.id === storedItemId ? "animacion" : ""
-      }`}
-    >
-      <div>
-      Perfil {ticket.profile} -  {ticket.id.slice(0,4)} {tickets.length - index} - {ticket.codes.length} tickets - {ticket.date} <strong className="uppercase">{ticket.zeller}</strong>
-      </div> 
-      <div className="flex gap-2">
-        <button
-          type="button"
-          onClick={() => printPDF(ticket)}
-          className="bg-blu-ar-200 text-blu-ar-900 hover:bg-blu-ar-400 text-sm uppercase rounded-md py-2 px-4"
-        >
-          Imprimir
-        </button>
-        <button
-          type="button"
-          onClick={() => copyCMD(ticket)}
-          className="bg-blu-ar-200 text-blu-ar-900 hover:bg-blu-ar-400 text-sm uppercase rounded-md py-2 px-4"
-        >
-          CMD
-        </button>
-      </div>
-    </li>
-  ))}
-</ul>
+        <div className="flex items-center justify-between max-w-5xl mb-6 mx-auto">
+          <h2 className="text-2xl text-center font-bold uppercase">Lista de Códigos</h2>
+
+          <div className="flex justify-end items-center">
+            <label htmlFor="sort" className="mr-2">Ordenar por:</label>
+            <select
+              id="sort"
+              value={sortCriteria}
+              onChange={(e) => setSortCriteria(e.target.value)}
+              className="border rounded px-2 py-1"
+            >
+              <option value="zeller">Zeller</option>
+              <option value="fecha">Fecha</option>
+              <option value="profile">Perfil</option>
+            </select>
+          </div>
+        </div>
+
+        <ul className="max-w-5xl flex flex-col gap-2 mx-auto">
+          {sortedTickets.map((ticket, index) => (
+            <li
+              key={ticket.id}
+              className={`flex items-center justify-between px-2 py-1 rounded cursor-pointer ${ticket.id === storedItemId ? "animacion" : ""} focus:bg-blu-ar-300 focus:outline-none active:bg-blu-ar-400`}
+              tabIndex={0}
+            >
+              <div id={`div-${ticket.id}`}>
+                <div className="flex items-center gap-2">
+                  <span className="block"><strong>ID:</strong> {ticket.id.slice(0, 4)} </span>
+                  <span className="block capitalize"><strong>Zeller:</strong> {ticket.zeller} </span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="block"><strong>Perfil:</strong> {ticket.profile} </span>
+                  <span className="block"><strong>Tickets:</strong> {ticket.codes.length} </span>
+                  <span className="block"><strong>Fecha:</strong> {ticket.date} </span>
+                </div>
+              </div>
+
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => printPDF(ticket)}
+                  className="bg-blu-ar-200 text-blu-ar-900 hover:bg-blu-ar-400 text-sm uppercase rounded-md py-2 px-4"
+                >
+                  Imprimir
+                </button>
+                <button
+                  type="button"
+                  onClick={() => copyCMD(ticket)}
+                  className="bg-blu-ar-200 text-blu-ar-900 hover:bg-blu-ar-400 text-sm uppercase rounded-md py-2 px-4"
+                >
+                  CMD
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
 };
+
+
 

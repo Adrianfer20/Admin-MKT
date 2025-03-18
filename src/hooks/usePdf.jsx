@@ -6,7 +6,7 @@ export function usePdf() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const beforePrint = () => {
     // Código que se ejecuta antes de la impresión
-    if(!tickets) return
+    if (!tickets) return
     console.log(tickets);
     const $root = document.getElementById("root");
     // Crea un elemento div
@@ -96,7 +96,7 @@ export function usePdf() {
   const afterPrint = () => {
     // Código que se ejecuta después de la impresión o cuando el usuario cancela
     const $pdf = document.getElementById('print')
-    if($pdf) $pdf.remove()
+    if ($pdf) $pdf.remove()
   };
 
   useEffect(() => {
@@ -113,9 +113,7 @@ export function usePdf() {
     setTickets(tickets);
     setTimeout(() => {
       const screenPrint = window;
-      // eslint-disable-next-line react/prop-types
-      screenPrint.document.title =
-        tickets.codes.length + " tickets - " + tickets.date;
+      screenPrint.document.title = `Perfil ${tickets.profile} - tickets ${tickets.codes.length} - ${tickets.id} - Fecha ${tickets.date} - ${tickets.zeller}`;
       screenPrint.print();
     }, 1000);
   };

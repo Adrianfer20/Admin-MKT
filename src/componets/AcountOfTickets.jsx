@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 const OPTIONS = [
   { label: '84 tickets', value: 84 },
+  {label: '276 tickets', value: 276},
   { label: '468 tickets', value: 468 },
   { label: '948 tickets', value: 948 },
 ];
