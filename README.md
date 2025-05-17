@@ -31,8 +31,9 @@ src/
 ├── utils/            # Funciones utilitarias (PDF, exportación CMD)
 ├── App.tsx           # Rutas y estructura principal
 └── main.tsx          # Punto de entrada
+```
 
-🔐 Funcionalidades principales
+## 🔐 Funcionalidades principales
 ✅ Registro y Login con Firebase Authentication
 
 ✅ Protección de rutas mediante contexto de usuario
