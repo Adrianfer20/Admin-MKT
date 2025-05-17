@@ -18,7 +18,7 @@ git clone https://github.com/tuusuario/ticket-app.git
 cd ticket-app
 npm install
 npm run dev
-```
+
 📁 Estructura de carpetas
 bash
 Copiar
@@ -30,9 +30,10 @@ src/
 ├── services/         # Configuraciones como Firebase
 ├── utils/            # Funciones utilitarias (PDF, exportación CMD)
 ├── App.tsx           # Rutas y estructura principal
-└── main.tsx          # Punto de entrada 
+└── main.tsx          # Punto de entrada
+```
 
-🔐 Funcionalidades principales
+## 🔐 Funcionalidades principales
 ✅ Registro y Login con Firebase Authentication
 
 ✅ Protección de rutas mediante contexto de usuario
