@@ -1,5 +1,5 @@
 
-import { saveTicketsFirestore } from '../firebase/ticket.firestore';
+import { saveTicketsFirestore } from '../../../config/ticket.firestore';
 
 export function useSaveOfTickets() {
   let message = '';

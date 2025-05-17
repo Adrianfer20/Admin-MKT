@@ -10,7 +10,7 @@ const OPTIONS = [
 
 // eslint-disable-next-line react/prop-types
 const ListOfCount = () => {
-  const [selectedOption, setSelectedOption] = useState(OPTIONS[0].value);
+  const [selectedOption, setSelectedOption] = useState(OPTIONS[3].value);
 
 
   const handleOptionChange = (value) => {

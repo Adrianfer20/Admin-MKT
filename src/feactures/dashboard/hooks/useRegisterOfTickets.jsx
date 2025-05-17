@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { getDate, getCodesOfTickets } from "../funtions/tickets";
+import { getDate, getCodesOfTickets } from "../../../shared/utils/tickets";
 
 export function useRegisterOfTickets() {
     const [tickets, setTickets] = useState(null)  

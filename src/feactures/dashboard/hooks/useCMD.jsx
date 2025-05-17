@@ -1,4 +1,4 @@
-import { useToast } from "./useToast";
+import { useToast } from "../../../shared/hooks/useToast";
 
 export function useCDM() {
     const {notify} = useToast()

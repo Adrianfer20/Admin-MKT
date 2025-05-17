@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.input-style {
+  @apply bg-blu-ar-700/5 text-blu-ar-900 placeholder:text-blu-ar-800 rounded-md py-2 px-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-lemon-ar-600 transition;
+}
+
+.btn-primary {
+  @apply w-full max-w-md bg-blu-ar-700 text-lemon-ar-600 hover:bg-lemon-ar-600 hover:text-blu-ar-700 hover:shadow-md hover:shadow-lemon-ar-600 rounded uppercase font-bold py-2 px-6 mx-auto transition ease-in-out duration-200;
+}

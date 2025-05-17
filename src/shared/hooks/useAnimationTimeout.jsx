@@ -1,7 +1,10 @@
+// hooks/useAnimationTimeout.ts
 import { useEffect } from "react";
 
-const useAnimationTimeout = (dependecy, selector, timeout) => {
+const useAnimationTimeout = (dependencies, selector, timeout) => {
   useEffect(() => {
+    if (!selector) return;
+
     const element = document.querySelector(selector);
     if (!element) return;
 
@@ -10,7 +13,7 @@ const useAnimationTimeout = (dependecy, selector, timeout) => {
     }, timeout);
 
     return () => clearTimeout(animationTimeout);
-  }, dependecy);
+  }, dependencies);
 };
 
 export default useAnimationTimeout;

@@ -1,9 +1,7 @@
-import { app } from './firebase.config.js'
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { db } from './firebase.config.js'
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
 
 const NAME_DB_TICKETS = "tickets"
 
