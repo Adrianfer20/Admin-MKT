@@ -4,12 +4,12 @@ import { getAuth } from "firebase/auth"
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCOtVwlnAdGDJY0o8SRHHdLJwaotRaaN4s",
-  authDomain: "admin-mkt-5436e.firebaseapp.com",
-  projectId: "admin-mkt-5436e",
-  storageBucket: "admin-mkt-5436e.appspot.com",
-  messagingSenderId: "899521384256",
-  appId: "1:899521384256:web:0f20f354eb2d369eb4b4a5"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 }
 
 // Inicializa Firebase
