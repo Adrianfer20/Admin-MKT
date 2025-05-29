@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi'
 import { useForm } from '../hooks/useForm'
 import { useLogin } from '../hooks/useLogin'
 
@@ -6,6 +8,8 @@ export default function Login() {
   const { data, setter } = useForm({ email: '', password: '' })
   const { login, loading, error } = useLogin()
   const navigate = useNavigate()
+
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -16,45 +20,62 @@ export default function Login() {
   }
 
   return (
-    <section className="flex items-center justify-center">
+    <section className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md p-8 space-y-6"
+        className="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-md"
       >
         <h1 className="text-3xl text-center font-bold uppercase text-blu-ar-950">
           Iniciar Sesión
         </h1>
 
-        <div className="flex flex-col">
-          <label htmlFor="email" className="font-medium text-blu-ar-950">
+        {/* Campo Email */}
+        <div className="flex flex-col relative">
+          <label htmlFor="email" className="font-medium text-blu-ar-950 mb-1">
             Usuario
           </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="example@email.com"
-            onChange={setter}
-            required
-            className="mt-1 border-2 border-blu-ar-100 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-lemon-ar-600"
-          />
+          <div className="flex items-center border-2 border-blu-ar-100 rounded-md p-2 focus-within:ring-2 focus-within:ring-lemon-ar-600">
+            <FiMail className="text-gray-500 mx-2" />
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="example@email.com"
+              onChange={setter}
+              required
+              className="w-full outline-none bg-transparent text-blu-ar-950"
+            />
+          </div>
         </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="password" className="font-medium text-blu-ar-950">
+        {/* Campo Password */}
+        <div className="flex flex-col relative">
+          <label htmlFor="password" className="font-medium text-blu-ar-950 mb-1">
             Contraseña
           </label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="••••••"
-            onChange={setter}
-            required
-            className="mt-1 border-2 border-blu-ar-100 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-lemon-ar-600"
-          />
+          <div className="flex items-center border-2 border-blu-ar-100 rounded-md p-2 focus-within:ring-2 focus-within:ring-lemon-ar-600">
+            <FiLock className="text-gray-500 mr-2" />
+            <input
+              id="password"
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              placeholder="••••••"
+              onChange={setter}
+              required
+              className="w-full outline-none bg-transparent text-blu-ar-950"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="text-gray-500 ml-2 focus:outline-none"
+              tabIndex={-1}
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
+          </div>
         </div>
 
+        {/* Botón de Acceso */}
         <button
           type="submit"
           disabled={loading}
@@ -65,6 +86,7 @@ export default function Login() {
           {loading ? 'Accediendo...' : 'Acceder'}
         </button>
 
+        {/* Mensaje de error */}
         {error && (
           <p className="text-red-600 text-sm text-center mt-2">{error}</p>
         )}
