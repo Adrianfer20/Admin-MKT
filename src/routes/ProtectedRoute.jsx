@@ -7,5 +7,5 @@ export default function ProtectedRoute({ children }) {
 
   if (loadingAuth) return <p className="text-center mt-10">Cargando...</p>
 
-  return user ? children : <Navigate to="/Admin-MKT/" />
+  return user ? children : <Navigate to="/" />
 }

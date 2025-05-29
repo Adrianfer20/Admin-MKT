@@ -43,7 +43,7 @@ export default function Nav() {
             </button>
           </>
         ) : (
-          <NavLink to="/Admin-MKT" end className={linkClass}>
+          <NavLink to="/" end className={linkClass}>
             <FiLogIn className="text-lg" />
             Iniciar sesión
           </NavLink>
