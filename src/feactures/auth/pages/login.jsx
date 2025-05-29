@@ -35,7 +35,7 @@ export default function Login() {
             Usuario
           </label>
           <div className="flex items-center border-2 border-blu-ar-100 rounded-md p-2 focus-within:ring-2 focus-within:ring-lemon-ar-600">
-            <FiMail className="text-gray-500 mx-2" />
+            <FiMail className="text-gray-500 mr-2" />
             <input
               id="email"
               type="email"
