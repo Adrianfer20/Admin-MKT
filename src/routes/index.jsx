@@ -1,4 +1,3 @@
-// src/routes/index.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from '../feactures/auth/pages/login'
 import Dashboard from '../feactures/dashboard/pages/Dashboard'
@@ -8,9 +7,9 @@ import Layout from '../layout/Layout'
 import RegisterOfTickets from '../feactures/dashboard/pages/RegisterOfTickets'
 
 export const AppRoutes = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/Admin-MKT">
     <Routes>
-      <Route path="/Admin-MKT/" element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route
           index
           element={
@@ -20,7 +19,7 @@ export const AppRoutes = () => (
           }
         />
         <Route
-          path="/Admin-MKT/dashboard"
+          path="dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />
@@ -28,10 +27,10 @@ export const AppRoutes = () => (
           }
         />
         <Route
-          path="/Admin-MKT/crear-tickets"
+          path="crear-tickets"
           element={
             <ProtectedRoute>
-              <RegisterOfTickets/>
+              <RegisterOfTickets />
             </ProtectedRoute>
           }
         />
