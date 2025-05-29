@@ -1,13 +1,14 @@
+import { useEffect, useMemo, useState } from "react";
+
 //Hooks
 import useGetApi from "../hooks/useGetApi";
 import { useCDM } from "../hooks/useCMD";
 import { usePdf } from "../hooks/usePdf";
 
 import toast from "react-hot-toast";
-
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"; // íconos para orden
 
 //Functions
-import { useEffect, useMemo, useState } from "react";
 import useAnimationTimeout from "../../../shared/hooks/useAnimationTimeout";
 import TicketItem from "../components/TicketsItems";
 import { deleteTicket } from "../services/database";
@@ -20,12 +21,21 @@ const parseDate = (str) => {
 
 
 export default function Dashboard() {
+
   const { tickets, isLoading, error } = useGetApi();
   const { printPDF } = usePdf();
   const { copyCMD } = useCDM();
 
   const [storedItemId, setStoredItemId] = useState(() => localStorage.getItem("itemId"));
+
   const [sortCriteria, setSortCriteria] = useState("fecha");
+  const [sortOrder, setSortOrder] = useState("asc"); // "asc" = primeras a últimas, "desc" = últimas a primeras
+
+  // Función para cambiar el orden asc/desc
+  const toggleSortOrder = () => {
+    setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+  };
+
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -36,21 +46,27 @@ export default function Dashboard() {
   }, []);
 
   useAnimationTimeout([tickets], ".animacion", 6000);
+
   const sortedTickets = useMemo(() => {
     if (!tickets) return [];
     return [...tickets].sort((a, b) => {
+      let comp = 0;
       switch (sortCriteria) {
         case "zeller":
-          return a.zeller?.localeCompare(b.zeller) ?? 0;
+          comp = a.zeller?.localeCompare(b.zeller) ?? 0;
+          break;
         case "fecha":
-          return parseDate(a.date).getTime() - parseDate(b.date).getTime();
+          comp = parseDate(a.date).getTime() - parseDate(b.date).getTime();
+          break;
         case "profile":
-          return a.profile?.localeCompare(b.profile) ?? 0;
+          comp = a.profile?.localeCompare(b.profile) ?? 0;
+          break;
         default:
-          return 0;
+          comp = 0;
       }
+      return sortOrder === "asc" ? comp : -comp;
     });
-  }, [tickets, sortCriteria]);
+  }, [tickets, sortCriteria, sortOrder]);
 
   const handlerDelete = async (ticket) => {
     const confirmDelete = window.confirm(`¿Eliminar ticket de ${ticket.zeller}?`);
@@ -92,7 +108,7 @@ export default function Dashboard() {
       <section className="px-4 md:px-8 max-w-6xl mx-auto">
         <div className="flex flex-row items-center justify-between gap-4 mb-6">
           <h2 className="text-lg md:text-2xl font-bold uppercase text-center md:text-left">Lista de Códigos</h2>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <label htmlFor="sort" className="text-sm md:text-base font-medium">Filtrar por:</label>
             <select
               id="sort"
@@ -104,6 +120,15 @@ export default function Dashboard() {
               <option value="fecha">Fecha</option>
               <option value="profile">Perfil</option>
             </select>
+
+            {/* Botón para ordenar asc/desc siempre visible */}
+            <button
+              onClick={toggleSortOrder}
+              title={sortOrder === "asc" ? "Orden ascendente" : "Orden descendente"}
+              className="flex items-center justify-center p-1 border rounded hover:bg-gray-100"
+            >
+              {sortOrder === "asc" ? <FiChevronUp size={20} /> : <FiChevronDown size={20} />}
+            </button>
           </div>
         </div>
 
