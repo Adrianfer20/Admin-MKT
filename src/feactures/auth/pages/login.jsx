@@ -11,7 +11,7 @@ export default function Login() {
     e.preventDefault()
     const res = await login(data)
     if (res.success) {
-      navigate('/Admin-MKT/dashboard')
+      navigate('/dashboard')
     }
   }
 

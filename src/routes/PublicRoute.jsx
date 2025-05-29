@@ -6,5 +6,5 @@ export default function PublicRoute({ children }) {
 
   if (loadingAuth) return <p className="text-center mt-10">Cargando...</p>
 
-  return user ? <Navigate to="/Admin-MKT/dashboard" /> : children
+  return user ? <Navigate to="/dashboard" /> : children
 }

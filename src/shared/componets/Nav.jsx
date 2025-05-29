@@ -24,12 +24,12 @@ export default function Nav() {
       <div className="flex items-center gap-4">
         {user ? (
           <>
-            <NavLink to="/Admin-MKT/dashboard" end className={linkClass}>
+            <NavLink to="/dashboard" end className={linkClass}>
               <FiHome className="text-lg" />
               <span className="hidden md:block">Inicio</span>
             </NavLink>
 
-            <NavLink to="/Admin-MKT/crear-tickets" className={linkClass}>
+            <NavLink to="/crear-tickets" className={linkClass}>
               <FiPlusSquare className="text-lg" />
               <span className="hidden md:block">Crear Tickets</span>
             </NavLink>
@@ -43,7 +43,7 @@ export default function Nav() {
             </button>
           </>
         ) : (
-          <NavLink to="/Admin-MKT/" end className={linkClass}>
+          <NavLink to="/Admin-MKT" end className={linkClass}>
             <FiLogIn className="text-lg" />
             Iniciar sesión
           </NavLink>
