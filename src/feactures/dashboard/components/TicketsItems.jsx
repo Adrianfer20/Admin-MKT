@@ -2,7 +2,7 @@ export default function TicketItem({ ticket, isActive, onPrint, onCopy, onDelete
   return (
     <li
       key={ticket.id}
-      className={`bg-[#fff] p-4 rounded-lg ${isActive ? "bg-lemon-ar-400" : "bg-white"} shadow-md hover:shadow-lg transition`}
+      className={`bg-white p-4 rounded-lg ${isActive ? "bg-lemon-ar-400" : "bg-white"} shadow-md hover:shadow-lg transition`}
       tabIndex={0}
     >
       <div className="flex flex-col gap-2 text-sm md:text-base">

@@ -4,11 +4,11 @@
 
 
 .input-style {
-  @apply bg-biscay-700/5 text-biscay-900 placeholder:text-biscay-800 rounded-md py-2 px-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-lemon-ar-600 transition;
+  @apply text-biscay-900 placeholder:text-biscay-900 border border-biscay-800 rounded-xl py-2 px-4 shadow-md focus:outline-none focus:ring-2 focus:ring-lemon-ar-600 transition;
 }
 
 .btn-primary {
-  @apply w-full max-w-md bg-biscay-800 text-white hover:bg-lemon-ar-600 hover:text-biscay-700 hover:shadow-md hover:shadow-lemon-ar-600 rounded uppercase font-bold py-2 px-6 mx-auto transition ease-in-out duration-200;
+  @apply w-full max-w-md bg-biscay-800 text-white flex items-center justify-center gap-2 hover:bg-lemon-ar-600 hover:text-biscay-700 hover:shadow-md hover:shadow-lemon-ar-600 rounded-xl uppercase font-bold py-2 px-6 mx-auto transition ease-in-out duration-200;
 }
 
 .nav-link {

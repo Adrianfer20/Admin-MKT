@@ -11,11 +11,11 @@ const RegisterOfTickets = () => {
 
   return (
     <>
-      <header className="max-w-5xl py-20 md:py-24 mx-auto text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl text-biscay-800 font-bold uppercase mb-4">
+      <header className="bg-biscay-800 text-white px-8 py-12 md:py-20 mb-12 rounded-br-[100px] shadow-md">
+        <h1 className="text-3xl md:text-5xl font-bold uppercase mb-4">
           Configuración de Tickets
         </h1>
-        <p className="text-lg max-w-2xl mx-auto text-gray-700 opacity-80">
+        <p className="text-base md:text-lg text-gray-700 max-w-2xl">
           Bienvenido a la página de administración de tickets MikroTik. Aquí puedes registrar y gestionar los tickets relacionados con tu red.
         </p>
 

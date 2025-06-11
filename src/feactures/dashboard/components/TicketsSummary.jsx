@@ -1,19 +1,21 @@
+import { FaSave } from "react-icons/fa"
+
 // components/TicketsSummary.jsx
 const TicketsSummary = ({ tickets, onSave }) => {
   return (
-    <section className="grid gap-6 max-w-5xl mx-auto px-4">
-      <h2 className="text-2xl font-bold text-center uppercase text-biscay-700">Configuración Registrada</h2>
+    <section className="px-4 md:px-8 max-w-6xl mx-auto">
+      <h2 className="bg-biscay-800 text-white text-md md:text-xl font-semibold uppercase text-center md:text-left rounded-3xl px-6 py-2 mb-4">Configuración Registrada</h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm md:text-base text-center">
+      <div className="bg-white p-4 rounded-lg grid gap-6 max-w-3xl mx-auto px-4 shadow-md mb-6">
         <p><strong>Servidor:</strong> {tickets.server}</p>
         <p><strong>Perfil:</strong> {tickets.profile}</p>
         <p><strong>Tiempo:</strong> {tickets.uptime}</p>
         <p><strong>Cantidad:</strong> {tickets.codes.length}</p>
       </div>
 
-      <div>
+      <div className="bg-white p-4 rounded-lg mb-6">
         <h4 className="font-semibold uppercase mb-2">Códigos</h4>
-        <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+        <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 max-h-[40vh] overflow-y-scroll">
           {tickets.codes.map(({ code }) => (
             <li key={code} className="bg-slate-100 text-center py-2 px-3 rounded shadow text-sm font-mono">
               {code}
@@ -23,7 +25,8 @@ const TicketsSummary = ({ tickets, onSave }) => {
       </div>
 
       <button type="button" onClick={() => onSave(tickets)} className="btn-primary">
-        Guardar
+        <span>Guardar</span>
+        <FaSave/>
       </button>
     </section>
   )
