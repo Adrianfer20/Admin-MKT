@@ -554,19 +554,9 @@ video {
   grid-column: span 1 / span 1;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .mb-1 {
@@ -1100,6 +1090,14 @@ video {
   --tw-shadow-color: #F1D00A;
   --tw-shadow: var(--tw-shadow-colored);
 }
+
+/* .input-style {
+  @apply border-2 border-blu-ar-100 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-lemon-ar-600;
+}
+
+.btn-primary {
+  @apply w-full bg-blu-ar-100 text-blu-ar-950 font-semibold rounded-md p-2 uppercase transition hover:bg-lemon-ar-600 hover:text-blu-ar-700 hover:shadow-md;
+} */
 
 .focus-within\:ring-2:focus-within {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);

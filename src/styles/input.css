@@ -10,3 +10,11 @@
 .btn-primary {
   @apply w-full max-w-md bg-blu-ar-700 text-lemon-ar-600 hover:bg-lemon-ar-600 hover:text-blu-ar-700 hover:shadow-md hover:shadow-lemon-ar-600 rounded uppercase font-bold py-2 px-6 mx-auto transition ease-in-out duration-200;
 }
+
+/* .input-style {
+  @apply border-2 border-blu-ar-100 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-lemon-ar-600;
+}
+
+.btn-primary {
+  @apply w-full bg-blu-ar-100 text-blu-ar-950 font-semibold rounded-md p-2 uppercase transition hover:bg-lemon-ar-600 hover:text-blu-ar-700 hover:shadow-md;
+} */
