@@ -2,7 +2,7 @@
 const TicketsSummary = ({ tickets, onSave }) => {
   return (
     <section className="grid gap-6 max-w-5xl mx-auto px-4">
-      <h2 className="text-2xl font-bold text-center uppercase text-blu-ar-700">Configuración Registrada</h2>
+      <h2 className="text-2xl font-bold text-center uppercase text-biscay-700">Configuración Registrada</h2>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm md:text-base text-center">
         <p><strong>Servidor:</strong> {tickets.server}</p>

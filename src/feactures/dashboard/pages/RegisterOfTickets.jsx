@@ -12,7 +12,7 @@ const RegisterOfTickets = () => {
   return (
     <>
       <header className="max-w-5xl py-20 md:py-24 mx-auto text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl text-blu-ar-800 font-bold uppercase mb-4">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl text-biscay-800 font-bold uppercase mb-4">
           Configuración de Tickets
         </h1>
         <p className="text-lg max-w-2xl mx-auto text-gray-700 opacity-80">

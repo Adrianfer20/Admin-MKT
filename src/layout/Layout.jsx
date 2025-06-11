@@ -5,9 +5,9 @@ import Footer from '../shared/componets/Footer';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col text-blu-ar-950 print:hidden">
+    <div className="min-h-screen flex flex-col text-biscay-900 bg-biscay-50 print:hidden">
       <Nav />
-      <main className="flex-grow w-full px-6 lg:px-16 mx-auto">
+      <main className="flex-grow w-full mx-auto">
         <Outlet />
         <Toaster position="bottom-center" />
       </main>

@@ -20,21 +20,21 @@ export default function Login() {
   }
 
   return (
-    <section className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
+    <section style={{background: 'linear-gradient(180deg,rgba(31, 42, 104, 1) 0%, rgba(31, 42, 104, 1) 40%, rgba(202, 207, 239, 1) 40%)' }} className="flex items-center justify-center min-h-[60vh] px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-md"
+        className="w-full max-w-md bg-white px-8 py-12 space-y-6 rounded-xl shadow-md"
       >
-        <h1 className="text-3xl text-center font-bold uppercase text-blu-ar-950">
+        <h1 className="text-biscay-800 text-center text-3xl font-bold uppercase mb-6">
           Iniciar Sesión
         </h1>
 
         {/* Campo Email */}
         <div className="flex flex-col relative">
-          <label htmlFor="email" className="font-medium text-blu-ar-950 mb-1">
-            Usuario
+          <label htmlFor="email" className="font-medium text-biscay-900 mb-1">
+            Email
           </label>
-          <div className="flex items-center border-2 border-blu-ar-100 rounded-md p-2 focus-within:ring-2 focus-within:ring-lemon-ar-600">
+          <div className="flex items-center border-2 border-biscay-100 rounded-md p-2 focus-within:ring-2 focus-within:ring-lemon-ar-600">
             <FiMail className="text-gray-500 mr-2" />
             <input
               id="email"
@@ -43,17 +43,17 @@ export default function Login() {
               placeholder="example@email.com"
               onChange={setter}
               required
-              className="w-full outline-none bg-transparent text-blu-ar-950"
+              className="w-full outline-none bg-transparent text-biscay-900"
             />
           </div>
         </div>
 
         {/* Campo Password */}
         <div className="flex flex-col relative">
-          <label htmlFor="password" className="font-medium text-blu-ar-950 mb-1">
+          <label htmlFor="password" className="font-medium text-biscay-900 mb-1">
             Contraseña
           </label>
-          <div className="flex items-center border-2 border-blu-ar-100 rounded-md p-2 focus-within:ring-2 focus-within:ring-lemon-ar-600">
+          <div className="flex items-center border-2 border-biscay-100 rounded-md p-2 focus-within:ring-2 focus-within:ring-lemon-ar-600">
             <FiLock className="text-gray-500 mr-2" />
             <input
               id="password"
@@ -62,7 +62,7 @@ export default function Login() {
               placeholder="••••••"
               onChange={setter}
               required
-              className="w-full outline-none bg-transparent text-blu-ar-950"
+              className="w-full outline-none bg-transparent text-biscay-900"
             />
             <button
               type="button"
@@ -79,7 +79,7 @@ export default function Login() {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full bg-blu-ar-100 text-blu-ar-950 font-semibold rounded-md p-2 uppercase transition hover:bg-lemon-ar-600 hover:text-blu-ar-700 hover:shadow-md ${
+          className={`w-full bg-biscay-800 text-white font-semibold rounded-md p-2 uppercase transition hover:bg-lemon-ar-600 hover:text-biscay-700 hover:shadow-md ${
             loading ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >

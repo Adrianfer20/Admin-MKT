@@ -5,7 +5,7 @@ const RegisterForm = ({ onSubmit }) => {
   return (
     <form onSubmit={onSubmit} className="grid gap-6 max-w-3xl mx-auto px-4">
       <fieldset className="grid gap-4">
-        <legend className="text-xl font-semibold uppercase text-blu-ar-700">Datos del Ticket</legend>
+        <legend className="text-xl font-semibold uppercase text-biscay-700">Datos del Ticket</legend>
 
         {[
           { id: 'zeller', label: 'Vendedor', placeholder: 'Adrianfer' },
