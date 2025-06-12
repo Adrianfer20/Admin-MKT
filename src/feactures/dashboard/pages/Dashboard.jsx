@@ -121,7 +121,7 @@ export default function Dashboard() {
           </h2>
 
           <div className="flex items-center gap-4">
-            <label htmlFor="sort" className="text-biscay-950 text-sm md:text-base font-medium">
+            <label htmlFor="sort" className="text-biscay-950 text-base font-medium">
               Filtrar por:
             </label>
             <div className="relative w-fit">
@@ -136,16 +136,16 @@ export default function Dashboard() {
                 <option value="profile">Perfil</option>
               </select>
               <div className="pointer-events-none absolute top-0 right-0 h-full w-10 bg-biscay-800 flex items-center justify-center rounded-r-md">
-                <FiChevronDown size={18} className="text-white" />
+                <FiChevronDown size={18} className=" text-white" />
               </div>
             </div>
 
             <button
               onClick={toggleSortOrder}
               title={sortOrder === "asc" ? "Orden ascendente" : "Orden descendente"}
-              className="flex items-center justify-center px-2 py-2 rounded-md bg-biscay-800 text-white hover:bg-biscay-900 focus:ring-2 focus:ring-biscay-900 shadow-md"
+              className="flex items-center justify-center p-1.5 md:p-2 rounded-md bg-biscay-800 text-white hover:bg-biscay-900 focus:ring-2 focus:ring-biscay-900 shadow-md"
             >
-              {sortOrder === "asc" ? <FaArrowUp size={20} /> : <FaArrowDown size={20} />}
+              {sortOrder === "asc" ? <FaArrowUp size={18} /> : <FaArrowDown size={18} />}
             </button>
           </div>
         </div>
