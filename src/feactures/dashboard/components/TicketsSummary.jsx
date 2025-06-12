@@ -3,8 +3,8 @@ import { FaSave } from "react-icons/fa"
 // components/TicketsSummary.jsx
 const TicketsSummary = ({ tickets, onSave }) => {
   return (
-    <section className="px-4 md:px-8 max-w-6xl mx-auto">
-      <h2 className="bg-biscay-800 text-white text-md md:text-xl font-semibold uppercase text-center md:text-left rounded-3xl px-6 py-2 mb-4">Configuración Registrada</h2>
+    <section className="max-w-2xl px-4 md:px-8 mx-auto">
+      <h2 className="grid md:inline-block bg-biscay-800 text-white text-md md:text-xl text-center md:text-left font-semibold uppercase rounded-3xl px-6 py-2 mb-4">Configuración Registrada</h2>
 
       <div className="bg-white p-4 rounded-lg grid gap-6 max-w-3xl mx-auto px-4 shadow-md mb-6">
         <p><strong>Servidor:</strong> {tickets.server}</p>

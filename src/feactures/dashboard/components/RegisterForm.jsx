@@ -1,22 +1,33 @@
 // components/RegisterForm.jsx
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
-import ListOfCount from "../../../shared/componets/AcountOfTickets"
+import { FaArrowRight } from "react-icons/fa";
+import ListOfCount from "../../../shared/componets/AcountOfTickets";
 
-const RegisterForm = ({ onSubmit }) => {
+const FIELDS = [
+  { id: "zeller", label: "Vendedor", placeholder: "Adrianfer" },
+  { id: "server", label: "Servidor", placeholder: "Wifi Por Hora" },
+  { id: "title", label: "Título", placeholder: "Wifi Por Hora" },
+  { id: "profile", label: "Perfil", placeholder: "1hr" },
+  { id: "uptime", label: "Tiempo", placeholder: "01:00:00" },
+];
+
+export default function RegisterForm({ onSubmit }) {
   return (
-    <section className="px-4 md:px-8 max-w-6xl mx-auto">
-      <h2 className="bg-biscay-800 text-white text-md md:text-xl font-semibold uppercase text-center md:text-left rounded-3xl px-6 py-2 mb-4">Configuración del Ticket</h2>
-      <form onSubmit={onSubmit} className="bg-white p-4 rounded-lg grid gap-6 max-w-3xl mx-auto px-4 shadow-md">
+    <section className="max-w-2xl px-4 md:px-8 mx-auto">
+      <h2 className="grid md:inline-block bg-biscay-800 text-white text-md md:text-xl text-center md:text-left font-semibold uppercase rounded-3xl px-6 py-2 mb-4">
+        Configuración del Ticket
+      </h2>
+
+      <form
+        onSubmit={onSubmit}
+        className="bg-white p-6 md:p-8 rounded-xl grid gap-6 mx-auto shadow-md"
+      >
+        {/* Campos principales */}
         <fieldset className="grid gap-4">
-          {[
-            { id: 'zeller', label: 'Vendedor', placeholder: 'Adrianfer' },
-            { id: 'server', label: 'Servidor', placeholder: 'Wifi Por Hora' },
-            { id: 'title', label: 'Título', placeholder: 'Wifi Por Hora' },
-            { id: 'profile', label: 'Perfil', placeholder: '1hr' },
-            { id: 'uptime', label: 'Tiempo', placeholder: '01:00:00' }
-          ].map(({ id, label, placeholder }) => (
+          {FIELDS.map(({ id, label, placeholder }) => (
             <div key={id} className="flex flex-col">
-              <label htmlFor={id} className="font-semibold">{label}</label>
+              <label htmlFor={id} className="font-semibold text-sm mb-1 text-biscay-900">
+                {label}
+              </label>
               <input
                 id={id}
                 name={id}
@@ -24,20 +35,22 @@ const RegisterForm = ({ onSubmit }) => {
                 placeholder={placeholder}
                 required
                 className="input-style"
+                minLength={1}
+                defaultValue={["server", "title"].includes(id) ? "Wifi Por Hora" : ""}
               />
             </div>
           ))}
         </fieldset>
 
+        {/* Lista de conteos */}
         <ListOfCount />
 
-        <button type="submit" className="btn-primary">
+        {/* Botón de enviar */}
+        <button type="submit" className="btn-primary flex items-center justify-center gap-2 mt-4">
           <span>Registrar</span>
-          <FaArrowRight/>
+          <FaArrowRight />
         </button>
       </form>
     </section>
-  )
+  );
 }
-
-export default RegisterForm

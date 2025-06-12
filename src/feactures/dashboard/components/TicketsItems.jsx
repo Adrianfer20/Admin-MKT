@@ -26,7 +26,7 @@ export default function TicketItem({ ticket, isActive, onPrint, onCopy, onDelete
         <div className="flex justify-end flex-wrap gap-2">
           <button
             onClick={onPrint}
-            className="bg-biscay-800 text-white hover:bg-biscay-800 hover:text-lemon-ar-300 hover:text-white rounded-md px-4 py-1 text-xs md:text-sm uppercase"
+            className="bg-biscay-800 text-white hover:bg-biscay-800 hover:text-lemon-ar-300 rounded-md px-4 py-1 text-xs md:text-sm uppercase"
             aria-label="Imprimir ticket"
           >
             Imprimir
