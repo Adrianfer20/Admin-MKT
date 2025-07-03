@@ -19,7 +19,7 @@ const ListOfCount = () => {
 
   return (
     <div className='grid gap-3'>
-      <h4 className="font-semibold">Cantidad de tickets:</h4>
+      <h4 className="font-semibold text-sm">Cantidad de Tickets:</h4>
         <div className='flex flex-wrap items-center justify-around'>
         {OPTIONS.map((option) => (
           <div key={option.value} className='flex gap-1'>
