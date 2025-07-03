@@ -43,7 +43,7 @@ export default function TicketItem({ ticket, isActive, onPrint, onAddUser, onDel
             className="bg-biscay-800 text-white hover:bg-biscay-800 hover:text-lemon-ar-300 rounded-md px-4 py-1 text-xs md:text-sm uppercase"
             aria-label="Copiar comando CMD"
           >
-            CMD Rest
+            CMD Delete
           </button>
           <button
             onClick={onDelete}
