@@ -9,6 +9,7 @@ const RegisterOfTickets = () => {
   const { tickets, register } = useRegisterOfTickets()
   const { saveOfTickets } = useSaveOfTickets()
 
+ 
   return (
     <>
       <header className="bg-biscay-800 text-white px-8 py-12 md:py-20 mb-12 rounded-br-[100px] shadow-md">

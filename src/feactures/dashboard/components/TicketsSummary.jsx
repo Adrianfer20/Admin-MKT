@@ -1,7 +1,21 @@
+import { useState } from "react"
 import { FaSave } from "react-icons/fa"
 
 // components/TicketsSummary.jsx
 const TicketsSummary = ({ tickets, onSave }) => {
+
+  const [loading, setLoading] = useState(false)
+
+  const handleSave = async () => {
+    setLoading(true)
+    try {
+      await onSave(tickets)
+    } catch (error) {
+      console.error("Error al guardar los tickets:", error)
+      setLoading(false)
+    } 
+  }
+
   return (
     <section className="max-w-2xl px-4 md:px-8 mx-auto">
       <h2 className="grid md:inline-block bg-biscay-800 text-white text-md md:text-xl text-center md:text-left font-semibold uppercase rounded-3xl px-6 py-2 mb-4">Configuración Registrada</h2>
@@ -24,9 +38,14 @@ const TicketsSummary = ({ tickets, onSave }) => {
         </ul>
       </div>
 
-      <button type="button" onClick={() => onSave(tickets)} className="btn-primary">
-        <span>Guardar</span>
-        <FaSave/>
+      <button type="button" onClick={handleSave}
+        disabled={loading} className="btn-primary">
+        {loading ? 'Guardando...' : (
+          <>
+            <span>Guardar</span>
+            <FaSave />
+          </>
+        )}
       </button>
     </section>
   )
