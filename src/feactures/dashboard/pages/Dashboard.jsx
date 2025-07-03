@@ -26,7 +26,7 @@ const PASSWORD = "1234";
 export default function Dashboard() {
   const { tickets, isLoading, error } = useGetApi();
   const { printPDF } = usePdf();
-  const { copyCMD } = useCDM();
+  const { cmdAddUser, cmdDeleteUsers } = useCDM();
 
   const [storedItemId, setStoredItemId] = useState(() => localStorage.getItem("itemId"));
   const [sortCriteria, setSortCriteria] = useState("fecha");
@@ -158,7 +158,8 @@ export default function Dashboard() {
               ticket={ticket}
               isActive={ticket.id === storedItemId}
               onPrint={() => printPDF(ticket)}
-              onCopy={() => copyCMD(ticket)}
+              onAddUser={() =>cmdAddUser(ticket)}
+              onDeleteUser={() => cmdDeleteUsers(ticket)}
               onDelete={() => handlerDelete(ticket)}
             />
           ))}
