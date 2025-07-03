@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const OPTIONS = [
   { label: '84 tickets', value: 84 },
-  {label: '276 tickets', value: 276},
+  {label: '248 tickets', value: 248},
   { label: '468 tickets', value: 468 },
   { label: '948 tickets', value: 948 },
 ];
@@ -18,7 +18,7 @@ const ListOfCount = () => {
   };
 
   return (
-    <div className='grid gap-3 max-w-md px-1 md:px-4'>
+    <div className='grid gap-3'>
       <h4 className="font-semibold">Cantidad de tickets:</h4>
         <div className='flex flex-wrap items-center justify-around'>
         {OPTIONS.map((option) => (

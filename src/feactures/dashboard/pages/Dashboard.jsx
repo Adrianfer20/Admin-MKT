@@ -113,8 +113,8 @@ export default function Dashboard() {
         </p>
       </header>
 
-      {/* Filtros */}
       <section className="px-4 md:px-8 max-w-6xl mx-auto">
+        {/* Filtros */}
         <div className="flex flex-wrap items-center justify-center md:justify-between gap-4 mb-6">
           <h2 className="bg-biscay-800 text-white text-md md:text-xl font-semibold uppercase rounded-3xl px-6 py-2">
             Lista de Códigos
